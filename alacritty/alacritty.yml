@@ -26,6 +26,8 @@ font:
 
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+  # got here: https://github.com/catppuccin/catppuccin
+  # they are my default terminal color
 
 workingdirectory: None
 
