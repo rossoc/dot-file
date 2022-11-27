@@ -1,28 +1,24 @@
-ifeq (compile,$(firstword $(MAKECMDGOALS)))
-  # use the rest as arguments for "run"
-  arg= $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
-endif
-
 CC = g++
-RC = rustc
+CFLAGS = -target arm64-apple-macos11 -mmacosx-version-min=11.0
 
-compile:
-	$(CC) $(arg) -o $(basename $(arg))
+compile: print
+	@$(CC) $(CFLAGS) $(arg) -o $(basename $(arg))
 
-help:
+help: print
 	echo "Help:\n"
-	cat Makefile
+	cat /Users/carlorosso/.config/Makefile
 
-run:
-	$(basename $(arg))
+run: print
+	@$(basename $(arg))
 
-%.o: %.cpp
-	$(CC) $< $(CFLAGS) -o $@
+%.o: %.cpp print 
+	@$(CC) $< $(CFLAGS) -o $@
 
-clear:
+clear: print
 	rm *.o
 
-test: $(basename $(arg)).in 
-	cat $(basename $(arg)).in | $(basename $(arg))
+test: $(basename $(arg)).in print
+	@cat $(basename $(arg)).in | $(basename $(arg))
+
+print:
+	@echo "\n"

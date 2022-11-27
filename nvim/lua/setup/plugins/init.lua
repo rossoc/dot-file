@@ -7,17 +7,23 @@ return require('packer').startup(function(use)
     use "sharkdp/fd"
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+        run = ":TSUpdate",
     }
     use "kyoh86/vim-ripgrep"
     use "williamboman/mason.nvim"
+	use 'williamboman/mason-lspconfig.nvim'
     use "nvim-telescope/telescope.nvim"
     use {
         'nvim-telescope/telescope-fzf-native.nvim', 
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
         }
     use "ThePrimeagen/harpoon"
     use "rust-lang/rust.vim"
     use "neovim/nvim-lspconfig"
-    use 'puremourning/vimspector'
+    use 'folke/trouble.nvim'
+	use 'folke/tokyonight.nvim'
+	--use {
+	--	'fatih/vim-go', 
+	--	run= ':GoUpdateBinaries',
+	--}
 end)
