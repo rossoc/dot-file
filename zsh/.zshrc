@@ -1,6 +1,6 @@
 alias ls='exa'
 alias v='nvim'
-alias ll='exa -lha'
+alias ll='exa -lhars changed'
 alias on='brew services start yabai && brew services start skhd'
 alias off='brew services stop yabai && brew services stop skhd'
 alias t='tmux'
