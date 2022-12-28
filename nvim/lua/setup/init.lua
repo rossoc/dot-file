@@ -1,20 +1,9 @@
 require "setup.plugins"
 require("plenary")
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
 
 require("harpoon")
 require("setup.keymap")
 require("setup.themes")
-
 
 require('trouble').setup{
     icons = false,

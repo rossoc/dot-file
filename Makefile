@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -target arm64-apple-macos11 -mmacosx-version-min=11.0
+CFLAGS = -target arm64-apple-macos11 -mmacosx-version-min=11.0 -std=c++2a
 
 compile: print
 	@$(CC) $(CFLAGS) $(arg) -o $(basename $(arg))
@@ -10,6 +10,7 @@ help: print
 
 run: print
 	@$(basename $(arg))
+	@rm $(basename $(arg))
 
 %.o: %.cpp print 
 	@$(CC) $< $(CFLAGS) -o $@

@@ -1,12 +1,15 @@
-alias ls='exa'
+alias ls='exa --group-directories-first'
 alias v='nvim'
-alias ll='exa -lhars changed'
+alias ll='exa -lhars name'
+alias lt='exa -L 3 -s extension --tree'
 alias on='brew services start yabai && brew services start skhd'
 alias off='brew services stop yabai && brew services stop skhd'
 alias t='tmux'
-alias q='tmux kill-session -t'
+alias ta='tmux attach -t'
+alias tq='tmux kill-session -t'
 alias e='exit'
 alias python='python3'
+alias connect='ssh carlo@192.168.1.86'
 
 autoload -Uz compinit
 compinit

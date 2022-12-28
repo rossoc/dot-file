@@ -21,8 +21,8 @@ return require('packer').startup(function(use)
     use "kyoh86/vim-ripgrep"
     use "williamboman/mason.nvim"
 	use 'williamboman/mason-lspconfig.nvim'
+	use "neovim/nvim-lspconfig"
     use "rust-lang/rust.vim"
-    use "neovim/nvim-lspconfig"
     use 'folke/trouble.nvim'
 	use 'folke/tokyonight.nvim'
 	use 'github/copilot.vim'
