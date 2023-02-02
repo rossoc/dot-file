@@ -1,4 +1,4 @@
-require('setup.themes.go')
+vim.g.mapleader = " "
 --vim.opt.guicursor = ""
 vim.o.number = true
 vim.o.relativenumber = true
@@ -27,7 +27,7 @@ vim.opt.cursorline = true
 vim.opt.autowrite = false
 
 vim.opt.textwidth = 80
-vim.opt.wrap = off
+vim.opt.wrap = true
 vim.opt.smartcase = true
 
 vim.opt.colorcolumn = "80"

@@ -8,6 +8,12 @@ alt + shift - h : yabai -m window --swap west
 alt + shift - l : yabai -m window --swap east
 
 alt - f: yabai -m window --toggle zoom-fullscreen
+alt - o : /Users/carlorosso/Documents/programmini/studio/target/release/studio studio_begin
+alt - p : /Users/carlorosso/Documents/programmini/studio/target/release/studio studio_end
+alt - q : /Users/carlorosso/Documents/programmini/studio/target/release/studio riposo_begin 
+alt - w : /Users/carlorosso/Documents/programmini/studio/target/release/studio riposo_end
+
+cmd - return: Applications/Alacritty.app/Contents/Macos/Alacritty --single-instance -d ~
 
 # Move focus container to workspace
 shift + alt - m : yabai -m window --space last
