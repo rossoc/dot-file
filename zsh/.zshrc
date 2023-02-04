@@ -11,8 +11,6 @@ alias e='exit'
 alias python='python3'
 alias connect='ssh carlo@192.168.1.86'
 
-alias s='/Users/carlorosso/Documents/some-little-programms/studio/target/release/studio'
-
 autoload -Uz compinit
 compinit
 _comp_options+=(globdots)
