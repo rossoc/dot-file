@@ -2,8 +2,8 @@ alias ls='exa --group-directories-first'
 alias v='nvim'
 alias ll='exa -lhars name'
 alias lt='exa -L 3 -s extension --tree'
-alias on='brew services start yabai && brew services start skhd'
-alias off='brew services stop yabai && brew services stop skhd'
+alias on='brew services start yabai'
+alias off='brew services stop yabai'
 alias t='tmux'
 alias ta='tmux attach -t'
 alias tq='tmux kill-session -t'
@@ -27,9 +27,12 @@ export GOPATH=$HOME/.config/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export PYTHONPATH="$PYTHONPATH:/opt/homebrew/lib/python3.10/site-packages"
 
 
 #spegni il computer, attacchi i dischi
 #<C-e> -> impostazioni raid
 #i dischi vanno formattati
 #seleziono i dischi e la modalità del raid
+
+# hackathon

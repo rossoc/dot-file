@@ -47,10 +47,10 @@ yabai -m config                                 \
     layout                       bsp            \
 
 yabai -m rule --add app="^Alacritty$" space=code
-yabai -m rule --add app="^Firefox$" space=web
+yabai -m rule --add app="^(Firefox|Arc)$" space=web
 yabai -m rule --add app="^Spotify$" space=media
 yabai -m rule --add app="^(Discord|Telegram|WhatsApp)$" space=social
-yabai -m rule --add app="^(System Settings|FaceTime)$" manage=off
+yabai -m rule --add app="^(System Settings|FaceTime|QuickTime Player)$" manage=off
 yabai -m rule --add app="^(StarCraft II|Battle.net)$" space=games
 
 yabai -m config --space media layout stack

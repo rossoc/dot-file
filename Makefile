@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -target arm64-apple-macos11 -mmacosx-version-min=11.0 -std=c++2a
-PACKAGES = curl git golang-go python3 python3-pip luarocks ruby-full composer php cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev npm net-tools openssh-server ufw neovim nodejs
+PACKAGES = curl git golang-go python3 python3-pip luarocks ruby-full composer php cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev npm net-tools openssh-server ufw neovim nodejs fzf
 
 compile: 
 	@$(CC) $(CFLAGS) $(arg) -o $(basename $(arg))

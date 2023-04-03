@@ -23,7 +23,7 @@ scrolling:
 tabspaces: 4
 
 font:
-  size: 15.0
+  size: 14.0
 
 schemes:
   # Tokyo Night theme, based on both:

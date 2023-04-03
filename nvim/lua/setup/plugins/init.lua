@@ -27,7 +27,7 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
-		cond = vim.fn.executable "make" == 1,
+		cond = vim.fn.executable("make") == 1,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -37,7 +37,8 @@ require("lazy").setup({
 	"mbbill/undotree",
 	"tpope/vim-fugitive",
 	"kyoh86/vim-ripgrep",
-	{ "neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
@@ -45,9 +46,13 @@ require("lazy").setup({
 	},
 	"folke/trouble.nvim",
 	"github/copilot.vim",
-
+	"mhartington/formatter.nvim",
+	{
+		"dccsillag/magma-nvim",
+		build = ":UpdateRemotePlugins",
+	},
+	"meatballs/notebook.nvim",
 })
-
 
 --    vim.cmd [[packadd packer.nvim]]
 --

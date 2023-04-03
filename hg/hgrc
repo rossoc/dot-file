@@ -1,0 +1,9 @@
+[ui]
+username = <carlo.rosso.1@studenti.unipd.it>
+
+[extensions]
+churn = 
+histedit = 
+mq = 
+rebase = 
+strip =
