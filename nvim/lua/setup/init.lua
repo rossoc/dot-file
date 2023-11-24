@@ -3,7 +3,6 @@ require("setup.plugins")
 require("setup.keymap")
 require("plenary")
 require("harpoon")
-require("notebook")
 
 require("trouble").setup({
 	icons = false,
@@ -18,14 +17,4 @@ require("trouble").setup({
 		information = "info",
 	},
 	use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
-})
-
-local augroup = vim.api.nvim_create_augroup
-local carlo_autogroup = augroup("FormatAutogroup", {})
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd("BufWritePost", {
-	group = carlo_autogroup,
-	pattern = "*",
-	command = "FormatWrite",
 })

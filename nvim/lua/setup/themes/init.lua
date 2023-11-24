@@ -31,3 +31,5 @@ vim.opt.wrap = true
 vim.opt.smartcase = true
 
 vim.opt.colorcolumn = "80"
+
+vim.g.loaded_perl_provider = 0

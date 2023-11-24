@@ -13,6 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -33,53 +37,54 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
-	"ThePrimeagen/harpoon",
 	"mbbill/undotree",
 	"tpope/vim-fugitive",
 	"kyoh86/vim-ripgrep",
 	{
-		"neovim/nvim-lspconfig",
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v3.x",
+		lazy = true,
+		config = false,
+		init = function()
+			-- Disable automatic setup, we are doing it manually
+		end,
+	},
+	{
+		"williamboman/mason.nvim",
+		lazy = false,
+		config = true,
+	},
+
+	-- Autocompletion
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			{ "L3MON4D3/LuaSnip" },
+		},
+	},
+
+	-- LSP
+	{
+		"neovim/nvim-lspconfig",
+		cmd = { "LspInfo", "LspInstall", "LspStart" },
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	},
 	"folke/trouble.nvim",
-	"github/copilot.vim",
-	"mhartington/formatter.nvim",
 	{
+		"github/copilot.vim",
+		build = ":Copilot disable",
+	},
+	{
+
 		"dccsillag/magma-nvim",
 		build = ":UpdateRemotePlugins",
 	},
 	"meatballs/notebook.nvim",
+	"puremourning/vimspector",
+	"ThePrimeagen/harpoon",
 })
-
---    vim.cmd [[packadd packer.nvim]]
---
---return require('packer').startup(function(use)
---  -- Packer can manage itself
---    use 'wbthomason/packer.nvim'
---    use "nvim-lua/plenary.nvim"
---    use "sharkdp/fd"
---    use "nvim-telescope/telescope.nvim"
---    use {
---        'nvim-telescope/telescope-fzf-native.nvim',
---        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
---        }
---    use {
---        "nvim-treesitter/nvim-treesitter",
---        run = ":TSUpdate",
---    }
---	use "nvim-treesitter/playground"
---    use "ThePrimeagen/harpoon"
---	use "mbbill/undotree"
---	use "tpope/vim-fugitive"
---    use "kyoh86/vim-ripgrep"
---    use "williamboman/mason.nvim"
---	use 'williamboman/mason-lspconfig.nvim'
---	use "neovim/nvim-lspconfig"
---    use "rust-lang/rust.vim"
---    use 'folke/trouble.nvim'
---	use 'folke/tokyonight.nvim'
---	use 'github/copilot.vim'
---end)
