@@ -46,8 +46,4 @@ yabai -m rule --add app="^(Discord|Telegram|WhatsApp)$" space=social
 yabai -m rule --add app="^(System Settings|FaceTime|QuickTime Player)$" manage=off
 yabai -m rule --add app="^(StarCraft II|Battle.net)$" space=games
 
-yabai -m config --space media layout stack
-yabai -m config --space social layout stack
-yabai -m config --space games layout stack
-
 echo "yabai configuration loaded.."

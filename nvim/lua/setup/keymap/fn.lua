@@ -4,8 +4,8 @@ end
 
 --! spostare quello che c'è nel makefile qui!
 
-local CFLAGS = "-target arm64-apple-macos11 -mmacosx-version-min=11.0 -std=c++2a"
-local CC = "g++"
+-- local CFLAGS = "-target arm64-apple-macos11 -mmacosx-version-min=11.0 -std=c++2a"
+-- local CC = "g++"
 
 --function Compile2()
 --	local filetype = vim.bo.filetype
@@ -20,20 +20,21 @@ local CC = "g++"
 
 function Compile()
 	local ans = vim.bo.filetype
+	local path = vim.fn.expand("%:p:h"):gsub(" ", "\\ ")
 	if ans == "rust" then
-		ans = "!cd" .. vim.fn.expand("%:p:h") .. "& rustc "
+		ans = "!cd" .. path .. "& rustc "
 	elseif ans == "cpp" or ans == "c" then
 		ans = ":!make -f /Users/carlorosso/.config/Makefile compile arg="
 	elseif ans == "tex" then
-		ans = "!cd " .. vim.fn.expand("%:p:h") .. " && pdflatex "
+		ans = "!cd " .. path .. " && pdflatex "
 	elseif ans == "go" then
-		ans = "!cd " .. vim.fn.expand("%:p:h") .. " && go build "
+		ans = "!cd " .. path .. " && go build "
 	elseif ans == "python" then
-		ans = "!cd " .. vim.fn.expand("%:p:h") .. " && python "
+		ans = "!cd " .. path .. " && python "
 	elseif ans == "typescript" then
-		ans = "!cd " .. vim.fn.expand("%:p:h") .. " && tsc --downlevelIteration "
+		ans = "!cd " .. path .. " && tsc --downlevelIteration "
 	end
-	vim.api.nvim_command(ans .. fname())
+	vim.api.nvim_command(ans .. fname():gsub(" ", "\\ "))
 end
 
 function Make(opt)

@@ -14,25 +14,23 @@ end)
 map("n", ";a", function()
 	mark.add_file()
 end)
-map("n", ";q", function()
+map("n", "<C-n>", function()
 	ui.nav_file(1)
 end)
-map("n", ";w", function()
+map("n", "<C-m>", function()
 	ui.nav_file(2)
 end)
-map("n", ";e", function()
-	ui.nav_file(3)
-end)
-map("n", ";r", function()
+map("n", "<C-,>", function()
 	ui.nav_file(3)
 end)
 
 -- telescope
-map("n", "<leader>f", ":Telescope find_files<CR>")
-map("n", ";f", ":Telescope live_grep<CR>")
+map("n", "<C-f>", ":Telescope find_files<CR>")
+map("n", "<leader>f", ":Telescope live_grep<CR>")
 map("n", ";g", ":Telescope git_files<CR>")
 map("n", ";s", ":Telescope buffers<CR>")
 map("n", ";q", ":Telescope quickfixhistory<CR>")
+map("n", "<leader>j", ":Telescope jumplist<CR>")
 
 -- useful vim remap
 map("n", "<leader>w", function()
@@ -42,8 +40,8 @@ end)
 map("n", "<leader>q", ":q!<CR>")
 map("n", "<leader>e", ":Ex<CR>")
 map("n", "<leader>v", ":vsplit<CR><C-w>w")
-map("n", "<C-w>=", "<C-w>>")
-map("n", "<C-w>-", "<C-w><")
+map("n", "<C-w>=", "50<C-w>>")
+map("n", "<C-w>-", "50<C-w><")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
@@ -53,7 +51,7 @@ map("n", "<leader>y", '"+y')
 map("x", "<leader>p", '"_dP')
 
 map("v", "J", ":m '>+1<CR>gv=gv")
--- map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 map("v", "<leader>y", '"+y')
 
 -- makefile
@@ -77,14 +75,13 @@ map("n", ",r", ":! cargo run<CR>")
 map("n", ",t", ":! cargo test<CR>")
 
 -- TroubleToggle
-map("n", "<space>t", ":TroubleToggle document_diagnostics<CR>")
-map("n", ";t", ":TroubleToggle workspace_diagnostics<CR>")
+map("n", "<space>t", ":TroubleToggle workspace_diagnostics<CR>")
 
 -- undo tree
 map("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- fugitive
-map("n", "<leader>g", ":Git<CR>")
+map("n", "<leader>g", ":G<CR>")
 
 -- copilot
 map("n", "<leader>c", ":Copilot panel<CR>")

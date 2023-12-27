@@ -74,7 +74,14 @@ require("lazy").setup({
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	},
-	"folke/trouble.nvim",
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			height = 15,
+			use_diagnostic_signs = true
+		}
+	},
 	{
 		"github/copilot.vim",
 		build = ":Copilot disable",
