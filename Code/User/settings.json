@@ -1,0 +1,6 @@
+{
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true,
+    "vim.neovimConfigPath": "~/.config/nvim/init.vim",
+    "vim.neovimPath": "/opt/homebrew/bin/nvim"
+}

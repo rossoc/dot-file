@@ -1,0 +1,15 @@
+[
+	{
+	  "key": "shift+k",
+	  "command": "editor.action.showHover",
+	  "when": "editorTextFocus && vim.active && !inDebugRepl'",
+	  "args": {
+		"delay": 500
+	  }
+	},
+    {
+        "key": "ctrl+t",
+        "command": "workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+	},
+]

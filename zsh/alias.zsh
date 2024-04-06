@@ -1,0 +1,7 @@
+alias v='nvim'
+alias ll='ls -lhars name'
+alias lt='ls -L 3 -s extension --tree'
+alias ta='tmux attach -t'
+alias tq='tmux kill-session -t'
+alias e='exit'
+alias python='python3.12'
