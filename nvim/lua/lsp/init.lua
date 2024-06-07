@@ -51,3 +51,6 @@ require("lsp.rust")
 require("lsp.typescript")
 require("lsp.tex")
 require("lsp.md")
+
+require('lsp-zero')
+require('lspconfig').intelephense.setup({})

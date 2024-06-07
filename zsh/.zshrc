@@ -3,6 +3,8 @@ compinit
 _comp_options+=(globdots)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
+
 
 export HISTSIZE=100000
 export SAVEHIST=100000

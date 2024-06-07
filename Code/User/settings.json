@@ -2,5 +2,42 @@
     "vim.enableNeovim": true,
     "vim.neovimUseConfigFile": true,
     "vim.neovimConfigPath": "~/.config/nvim/init.vim",
-    "vim.neovimPath": "/opt/homebrew/bin/nvim"
+    "vim.neovimPath": "/opt/homebrew/bin/nvim",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.renderLineHighlight": "all",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.tokenColorCustomizations": {
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        }
+    },
+    "editor.cursorBlinking": "solid",
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "workbench.editor.restoreViewState": false,
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "single",
+    "search.defaultViewMode": "tree",
+    "search.quickOpen.history.filterSortOrder": "recency"
 }

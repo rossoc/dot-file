@@ -25,8 +25,8 @@ map("n", "<C-,>", function()
 end)
 
 -- telescope
-map("n", "<C-f>", ":Telescope find_files<CR>")
-map("n", "<leader>f", ":Telescope live_grep<CR>")
+map("n", "<leader>f", ":Telescope find_files<CR>")
+map("n", ";f", ":Telescope live_grep<CR>")
 map("n", ";g", ":Telescope git_files<CR>")
 map("n", ";s", ":Telescope buffers<CR>")
 map("n", ";q", ":Telescope quickfixhistory<CR>")
