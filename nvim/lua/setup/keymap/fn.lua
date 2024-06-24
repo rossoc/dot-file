@@ -26,7 +26,7 @@ function Compile()
 	elseif ans == "cpp" or ans == "c" then
 		ans = ":!make -f /Users/carlorosso/.config/Makefile compile arg="
 	elseif ans == "tex" then
-		ans = "!cd " .. path .. " && pdflatex "
+		ans = "!cd " .. path .. " && pdflatex -shell-escape "
 	elseif ans == "go" then
 		ans = "!cd " .. path .. " && go build "
 	elseif ans == "python" then

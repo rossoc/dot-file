@@ -34,12 +34,14 @@ require("tokyonight").setup({
 
 
 	on_highlights = function(hl, c)
-		local output = "#363a57"
-		local bg = "#30344e"
+		local bg = "#363a57"
 		local border = "#aaafcb"
+		local highlight_bg = "#292c42"
+		local highlight_fg = "#ff862a"
+
 
 		hl.TelescopeNormal = {
-			bg = output,
+			bg = bg,
 			fg = c.fg_dark,
 		}
 		hl.TelescopeBorder = {
@@ -47,7 +49,7 @@ require("tokyonight").setup({
 			fg = border,
 		}
 		hl.TelescopePromptNormal = {
-			bg = output,
+			bg = bg,
 		}
 		hl.TelescopePromptBorder = {
 			bg = bg,
@@ -64,6 +66,10 @@ require("tokyonight").setup({
 		hl.TelescopeResultsTitle = {
 			bg = bg,
 			fg = border,
+		}
+		hl.TelescopePreviewLine = {
+			bg = highlight_bg,
+			fg = highlight_fg,
 		}
 	end,
 })

@@ -12,9 +12,6 @@ setopt EXTENDED_HISTORY
 
 export EDITOR=nvim
 
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="/opt/homebrew/opt/qt/bin:$PATH"
-
 source ~/.config/zsh/alias.zsh
 source ~/.config/zsh/export.zsh
 source ~/.config/zsh/estetic.zsh
