@@ -6,6 +6,8 @@ vim.o.so = 12
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -33,3 +35,28 @@ vim.opt.smartcase = true
 vim.opt.colorcolumn = "80"
 
 vim.g.loaded_perl_provider = 0
+
+vim.g.jupytext_fmt = 'py'
+vim.g.jupytext_style = 'hydrogen'
+vim.g.copilot_filetypes = {["*"] = false }
+
+-- nmap ]x ctrih/^# %%<CR><CR>
+
+-- local iron = require "iron.core"
+-- iron.setup({
+--   config = {
+--     should_map_plug = false,
+--     scratch_repl = true,
+--     repl_definition = {
+--       python = {
+--         command = { "ipython" },
+--         format = require("iron.fts.common").bracketed_paste,
+--       },
+--     },
+--   },
+--   keymaps = {
+--     send_motion = "ctr",
+--     visual_send = "ctr",
+--   },
+-- })
+-- 

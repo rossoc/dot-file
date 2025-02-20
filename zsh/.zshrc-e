@@ -22,7 +22,3 @@ source ~/.config/zsh/estetic.zsh
 #seleziono i dischi e la modalità del raid
 
 # hackathon
-
-[ -f "/Users/carlorosso/.ghcup/env" ] && . "/Users/carlorosso/.ghcup/env" # ghcup-env
-# Created by `pipx` on 2024-07-29 10:40:37
-export PATH="$PATH:/Users/carlorosso/.local/bin"

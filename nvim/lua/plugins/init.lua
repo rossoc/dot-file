@@ -86,12 +86,10 @@ require("lazy").setup({
 		"github/copilot.vim",
 		build = ":Copilot disable",
 	},
-	{
-
-		"dccsillag/magma-nvim",
-		build = ":UpdateRemotePlugins",
-	},
-	"meatballs/notebook.nvim",
-	"puremourning/vimspector",
 	"ThePrimeagen/harpoon",
+    {
+        'GCBallesteros/vim-textobj-hydrogen',
+        dependencies = { 'kana/vim-textobj-user' },
+    },
+    'GCBallesteros/jupytext.vim',
 })

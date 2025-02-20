@@ -29,27 +29,36 @@ function Compile()
 		ans = "!cd " .. path .. " && pdflatex -shell-escape "
 	elseif ans == "go" then
 		ans = "!cd " .. path .. " && go build "
-	elseif ans == "python" then
-		ans = "!cd " .. path .. " && python "
+	elseif ans == "python3" then
+        return
 	elseif ans == "typescript" then
 		ans = "!cd " .. path .. " && tsc --downlevelIteration "
+	elseif ans == "haskell" then
+		ans = "!cd " .. path .. " && ghc "
+	elseif ans == "typst" then
+		ans = "!cd " .. path .. " && typst compile --root ../../../.. "
 	end
 	vim.api.nvim_command(ans .. fname():gsub(" ", "\\ "))
 end
 
 function Make(opt)
-	Compile()
-	local ans
-	if vim.bo.filetype == "python" then
-		ans = "!python3 "
-	elseif vim.bo.filetype == "typescript" then
-		vim.api.nvim_command("!node " .. vim.fn.expand("%:r") .. ".js")
-		return
-	else
-		ans = ":!make -f /Users/carlorosso/.config/Makefile " .. opt .. " arg="
-	end
-	vim.api.nvim_command(ans .. fname())
+    if vim.bo.filetype == "python" then
+        vim.api.nvim_command("!echo '' && python3 " .. vim.fn.expand("%:r") .. ".py")
+    end
 end
+
+--	Compile()
+--	local ans
+--	if vim.bo.filetype == "python" then
+--        vim.api.nvim_command("!python3 " .. vim.fn.expand("%:r") .. ".py")
+--        return
+--	elseif vim.bo.filetype == "typescript" then
+--		vim.api.nvim_command("!node " .. vim.fn.expand("%:r") .. ".js")
+--		return
+--	else
+--		ans = ":!make -f /Users/carlorosso/.config/Makefile " .. opt .. " arg="
+--	end
+--	vim.api.nvim_command(ans .. fname())
 
 --function AddToWatch()
 --	local word = vim.api.expand("<cexpr>")

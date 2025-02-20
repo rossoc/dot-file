@@ -1,2 +1,4 @@
-require("setup")
+require("plugins")
+require("themes")
+require("keymap")
 require("lsp")

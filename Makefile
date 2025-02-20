@@ -9,7 +9,7 @@ help: print
 	echo "Help:\n"
 	cat /Users/carlorosso/.config/Makefile
 
-run: compile print
+run: print
 	@$(basename $(arg))
 	@rm $(basename $(arg))
 

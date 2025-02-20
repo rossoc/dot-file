@@ -75,4 +75,4 @@ require("tokyonight").setup({
 })
 
 vim.cmd [[colorscheme tokyonight]]
-vim.cmd('source ~/.config/nvim/lua/setup/themes/colors.vim')
+vim.cmd('source ~/.config/nvim/lua/themes/colors.vim')

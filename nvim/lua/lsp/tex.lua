@@ -1,6 +1,7 @@
 local lsp = require("lsp-zero")
 
 require("lspconfig").texlab.setup({
+	on_attach = lsp.on_attach,
 	texlab = {
 		auxDirectory = ".",
 		bibtexFormatter = "texlab",

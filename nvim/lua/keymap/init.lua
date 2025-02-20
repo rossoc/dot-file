@@ -1,4 +1,4 @@
-require("setup.keymap.fn")
+require("keymap.fn")
 
 local function map(mode, key, fn)
 	vim.keymap.set(mode, key, fn)
@@ -75,7 +75,7 @@ map("n", ",r", ":! cargo run<CR>")
 map("n", ",t", ":! cargo test<CR>")
 
 -- TroubleToggle
-map("n", "<space>t", ":TroubleToggle workspace_diagnostics<CR>")
+map("n", "<space>t", "<cmd>Trouble diagnostics toggle<cr>")
 
 -- undo tree
 map("n", "<leader>u", vim.cmd.UndotreeToggle)

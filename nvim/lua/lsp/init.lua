@@ -32,7 +32,7 @@ end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "clangd", "gopls", "pyright", "rust_analyzer", "tsserver" },
+	ensure_installed = { "clangd", "gopls", "pyright", "rust_analyzer", "ts_ls" },
 	handlers = {
 		lsp_zero.default_setup,
 		lua_ls = function()
@@ -51,6 +51,29 @@ require("lsp.rust")
 require("lsp.typescript")
 require("lsp.tex")
 require("lsp.md")
+require("lsp.haskell")
 
 require('lsp-zero')
-require('lspconfig').intelephense.setup({})
+require('lspconfig').intelephense.setup({
+	on_attach = lsp_zero.on_attach,
+})
+
+require('lspconfig').ast_grep.setup({
+	on_attach = lsp_zero.on_attach,
+})
+
+require'lspconfig'.typst_lsp.setup{
+	settings = {
+		exportPdf = "never" -- Choose onType, onSave or never.
+        -- serverPath = "" - Normally, there is no need to uncomment it.
+	},
+    on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end,
+}
+
+ require'lspconfig'.jdtls.setup{
+     settings = {
+         java_home = "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
+     }
+ }
