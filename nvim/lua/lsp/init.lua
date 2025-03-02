@@ -3,6 +3,7 @@ vim.g.lsp_zero_extend_lspconfig = 0
 
 -- Here is where you configure the autocompletion settings.
 local lsp_zero = require("lsp-zero")
+local lsp = require('lspconfig')
 lsp_zero.extend_cmp()
 
 -- And you can configure cmp even more, if you want to.
@@ -20,60 +21,86 @@ cmp.setup({
 	}),
 })
 
--- This is where all the LSP shenanigans will live
-local lsp = require("lsp-zero")
-lsp.extend_lspconfig()
+lsp_zero.extend_lspconfig()
 
-lsp.on_attach(function(_, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
 	-- see :help lsp-zero-keybindings
 	-- to learn the available actions
-	lsp.default_keymaps({ buffer = bufnr })
+	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "clangd", "gopls", "pyright", "rust_analyzer", "ts_ls" },
+	ensure_installed = { "clangd", "gopls", "ruff", "rust_analyzer", "ts_ls" },
 	handlers = {
 		lsp_zero.default_setup,
 		lua_ls = function()
-			-- (Optional) Configure lua language server for neovim
-			local lua_opts = lsp.nvim_lua_ls()
-			require("lspconfig").lua_ls.setup(lua_opts)
+			lsp.lua_ls.setup(lsp_zero.nvim_lua_ls())
 		end,
-	},
+
+        },
 })
 
-require("lsp.cpp")
-require("lsp.go")
-require("lsp.make")
-require("lsp.python")
 require("lsp.rust")
-require("lsp.typescript")
 require("lsp.tex")
-require("lsp.md")
 require("lsp.haskell")
 
-require('lsp-zero')
-require('lspconfig').intelephense.setup({
+lsp.intelephense.setup({
 	on_attach = lsp_zero.on_attach,
 })
 
-require('lspconfig').ast_grep.setup({
+lsp.ast_grep.setup({
 	on_attach = lsp_zero.on_attach,
 })
 
-require'lspconfig'.typst_lsp.setup{
-	settings = {
-		exportPdf = "never" -- Choose onType, onSave or never.
-        -- serverPath = "" - Normally, there is no need to uncomment it.
-	},
-    on_attach = function(client)
-        client.server_capabilities.semanticTokensProvider = nil
-    end,
+lsp.tinymist.setup{
+    settings = {
+        formatterMode = "typstyle",
+        exportPdf = "never",
+        semanticTokens = "disable"
+    }
 }
 
- require'lspconfig'.jdtls.setup{
+lsp.jdtls.setup{
      settings = {
          java_home = "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
      }
  }
+
+lsp.clangd.setup({})
+
+lsp.gopls.setup({})
+
+lsp.cmake.setup({})
+
+lsp.ts_ls.setup({})
+
+-- Using pyright for Hover (`C-k`)
+lsp.pyright.setup {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        ignore = { '*' },
+      },
+    },
+  },
+}
+
+lsp.ruff.setup({})
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client == nil then
+      return
+    end
+    if client.name == 'ruff' then
+      -- Disable hover in favor of Pyright
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+  desc = 'LSP: Disable hover capability from Ruff',
+})

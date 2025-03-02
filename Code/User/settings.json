@@ -39,5 +39,6 @@
     "zenMode.hideLineNumbers": false,
     "zenMode.showTabs": "single",
     "search.defaultViewMode": "tree",
-    "search.quickOpen.history.filterSortOrder": "recency"
+    "search.quickOpen.history.filterSortOrder": "recency",
+    "python.defaultInterpreterPath": "/Users/carlorosso/Documents/master_computer_science/mla/exam/code"
 }

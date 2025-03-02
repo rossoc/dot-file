@@ -1,4 +1,3 @@
-local lsp = require("lsp-zero")
 local util = require("lspconfig/util")
 
 require("lspconfig").hls.setup({
