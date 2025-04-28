@@ -7,6 +7,7 @@ export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Users/carlorosso/.cargo/bin:$PATH"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home"
 # export JAVA_HOME=$(/usr/libexec/java_home)

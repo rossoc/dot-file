@@ -2,25 +2,11 @@ local function fname()
 	return vim.fn.expand("%:p")
 end
 
---! spostare quello che c'è nel makefile qui!
-
--- local CFLAGS = "-target arm64-apple-macos11 -mmacosx-version-min=11.0 -std=c++2a"
--- local CC = "g++"
-
---function Compile2()
---	local filetype = vim.bo.filetype
---	local filepath = vim.fn.expand("%:p:h")
---	local cmd = "!cd " .. filepath .. " && ""
---
---	if filetype == "rust" then
---		cmd = cmd .. "rustc "
---	elseif ans == "cpp" or ans == "c" then
---		cmd == cmd .. CC .. " " .. CFLAGS .. " " ..
---end
-
 function Compile()
 	local ans = vim.bo.filetype
 	local path = vim.fn.expand("%:p:h"):gsub(" ", "\\ ")
+    local ext = vim.fn.expand("%:e")
+
 	if ans == "rust" then
 		ans = "!cd" .. path .. "& rustc "
 	elseif ans == "cpp" or ans == "c" then
@@ -37,7 +23,10 @@ function Compile()
 		ans = "!cd " .. path .. " && ghc "
 	elseif ans == "typst" then
 		ans = "!cd " .. path .. " && typst compile --root ../../../.. "
-	end
+    elseif  ext == "uml" then
+        ans = "!cd " .. path .. " && plantuml "
+    end
+
 	vim.api.nvim_command(ans .. fname():gsub(" ", "\\ "))
 end
 

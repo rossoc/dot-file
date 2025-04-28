@@ -40,5 +40,7 @@
     "zenMode.showTabs": "single",
     "search.defaultViewMode": "tree",
     "search.quickOpen.history.filterSortOrder": "recency",
-    "python.defaultInterpreterPath": "/Users/carlorosso/Documents/master_computer_science/mla/exam/code"
+    "python.defaultInterpreterPath": "/Users/carlorosso/Documents/master_computer_science/mla/exam/code",
+    "notebook.lineNumbers": "on",
+    "github.copilot.nextEditSuggestions.enabled": false
 }

@@ -7,8 +7,6 @@ yabai -m space 1 --label code
 yabai -m space 2 --label web
 yabai -m space 3 --label media
 yabai -m space 4 --label social
-yabai -m space 5 --label games
-yabai -m space 6 --label else
 
 # global settings
 yabai -m config                                 \
@@ -44,6 +42,5 @@ yabai -m rule --add app="^(Firefox|Arc)$" space=web
 yabai -m rule --add app="^Spotify$" space=media
 yabai -m rule --add app="^(Discord|Telegram|WhatsApp)$" space=social
 yabai -m rule --add app="^(System Settings|FaceTime|QuickTime Player)$" manage=off
-yabai -m rule --add app="^(StarCraft II|Battle.net)$" space=games
 
 echo "yabai configuration loaded.."
