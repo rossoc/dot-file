@@ -29,7 +29,7 @@ function Compile()
 		ans = "!cd " .. path .. " && pdflatex -shell-escape "
 	elseif ans == "go" then
 		ans = "!cd " .. path .. " && go build "
-	elseif ans == "python3" then
+	elseif ans == "python3" or ans =="python" then
         return
 	elseif ans == "typescript" then
 		ans = "!cd " .. path .. " && tsc --downlevelIteration "
@@ -43,7 +43,7 @@ end
 
 function Make(opt)
     if vim.bo.filetype == "python" then
-        vim.api.nvim_command("!echo '' && python3 " .. vim.fn.expand("%:r") .. ".py")
+        vim.api.nvim_command("!echo '' && uv run " .. vim.fn.expand("%:r") .. ".py")
     end
 end
 
