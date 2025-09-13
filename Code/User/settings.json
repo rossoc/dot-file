@@ -42,5 +42,7 @@
     "search.quickOpen.history.filterSortOrder": "recency",
     "python.defaultInterpreterPath": "/Users/carlorosso/Documents/master_computer_science/mla/exam/code",
     "notebook.lineNumbers": "on",
-    "github.copilot.nextEditSuggestions.enabled": false
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "explorer.confirmDelete": false,
+    "jupyter.askForKernelRestart": false
 }

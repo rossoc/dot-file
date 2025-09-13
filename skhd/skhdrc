@@ -1,4 +1,0 @@
-cmd - up		: ~/.config/programmini/bin/skhd_fullscreen.sh
-cmd - down		: ~/.config/programmini/bin/skhd_disable_float.sh
-cmd - left		: ~/.config/programmini/bin/skhd_mv_left.sh
-cmd - right		: ~/.config/programmini/bin/skhd_mv_right.sh
