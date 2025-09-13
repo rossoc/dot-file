@@ -37,4 +37,4 @@ vim.opt.colorcolumn = "80"
 vim.g.loaded_perl_provider = 0
 
 vim.g.jupytext_fmt = 'py'
-vim.g.jupytext_style = ':hydrogen'
+vim.g.jupytext_style = 'hydrogen'
