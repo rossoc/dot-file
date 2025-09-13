@@ -38,25 +38,3 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.jupytext_fmt = 'py'
 vim.g.jupytext_style = ':hydrogen'
-vim.g.copilot_filetypes = {["*"] = false }
-
--- nmap ]x ctrih/^# %%<CR><CR>
-
--- local iron = require "iron.core"
--- iron.setup({
---   config = {
---     should_map_plug = false,
---     scratch_repl = true,
---     repl_definition = {
---       python = {
---         command = { "ipython" },
---         format = require("iron.fts.common").bracketed_paste,
---       },
---     },
---   },
---   keymaps = {
---     send_motion = "ctr",
---     visual_send = "ctr",
---   },
--- })
--- 

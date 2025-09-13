@@ -1,17 +1,80 @@
--- local iron = require "iron.core"
--- iron.setup({
+-- local iron = require("iron.core")
+-- local view = require("iron.view")
+-- local common = require("iron.fts.common")
+-- local ll = require("iron.lowlevel")
+-- 
+-- local master_key = ";"
+-- 
+-- iron.setup {
 --   config = {
---     should_map_plug = false,
+--     -- Whether a repl should be discarded or not
 --     scratch_repl = true,
+--     -- Your repl definitions come here
 --     repl_definition = {
---       python = {
---         command = { "ipython" },
---         format = require("iron.fts.common").bracketed_paste,
+--       sh = {
+--         -- Can be a table or a function that
+--         -- returns a table (see below)
+--         command = {"zsh"}
 --       },
+--       python = {
+--         command = { "uv", "run", "ipython" },  -- or { "ipython", "--no-autoindent" }
+--         format = function(lines, extras)
+--             result = common.bracketed_paste_python(lines, extras)
+--             filter = vim.tbl_filter(function(line) return not string.match(line, "^%s*#") end, result)
+--             return filter
+--         end,
+--         block_dividers = { "# %%", "#%%" },
+--         env = {PYTHON_BASIC_REPL = "1"} --this is needed for python3.13 and up.
+--       }
 --     },
+--     -- set the file type of the newly created repl to ft
+--     -- bufnr is the buffer id of the REPL and ft is the filetype of the 
+--     -- language being used for the REPL. 
+--     repl_filetype = function(bufnr, ft)
+--       return ft
+--       -- or return a string name such as the following
+--       -- return "iron"
+--     end,
+--     -- Send selections to the DAP repl if an nvim-dap session is running.
+--     dap_integration = true,
+--     repl_open_cmd = "vert botright split"
 --   },
---   keymaps = {
---     send_motion = "ctr",
---     visual_send = "ctr",
---   },
--- })
+--   -- Iron doesn't set keymaps by default anymore.
+--   -- You can set them here or manually add keymaps to the functions in iron.core
+--   -- keymaps = {
+--   --   toggle_repl = master_key .. "rr", -- toggles the repl open and closed.
+--   --   restart_repl = master_key .. "rR", -- calls `IronRestart` to restart the repl
+--   --   send_motion = master_key .. "sc",
+--   --   visual_send = master_key .. "sc",
+--   --   send_file = master_key .. "sf",
+--   --   send_line = master_key .. "sl",
+--   --   send_paragraph = master_key .. "sp",
+--   --   send_until_cursor = master_key .. "su",
+--   --   send_mark = master_key .. "sm",
+--   --   send_code_block = master_key .. "sb",
+--   --   send_code_block_and_move = master_key .. "sn",
+--   --   mark_motion = master_key .. "mc",
+--   --   mark_visual = master_key .. "mc",
+--   --   remove_mark = master_key .. "md",
+--   --   cr = master_key .. "s<cr>",
+--   --   interrupt = master_key .. "s<space>",
+--   --   exit = master_key .. "sq",
+--   --   clear = master_key .. "cl",
+--   -- },
+-- 
+--   ignore_blank_lines = false,
+-- }
+-- 
+-- -- iron also has a list of commands, see :h iron-commands for all available commands
+-- -- vim.keymap.set('n', master_key .. "rf", '<cmd>IronFocus<cr>')
+-- -- vim.keymap.set('n', master_key .. "rh", '<cmd>IronHide<cr>')
+-- 
+-- local map = function(key, fn)
+--     vim.keymap.set('n', master_key .. key, fn)
+-- end
+-- 
+-- local is_windows = function()
+--     io.write(tostring(package.config:sub(1,1) == '\\'))
+-- end
+-- 
+-- map("sl", is_windows)

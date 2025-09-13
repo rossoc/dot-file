@@ -1,4 +1,5 @@
-require("plugins")
-require("themes")
-require("keymap")
+require("config.theme")
+require("config.util")
+require("config.keymap")
+require("config.lazy")
 require("lsp")
