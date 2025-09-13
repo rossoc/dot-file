@@ -37,6 +37,10 @@ require("lsp.rust")
 require("lsp.tex")
 require("lsp.haskell")
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/main
 lsp.jdtls.setup {
     settings = {
         java_home = "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
