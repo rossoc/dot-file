@@ -7,7 +7,7 @@ function Compile()
     local path = vim.fn.expand("%:p:h"):gsub(" ", "\\ ")
     local ext = vim.fn.expand("%:e")
 
-    if ext == "uml" then
+    if ext == "uml" or ext == "puml" then
         filetype = "uml"
     end
 

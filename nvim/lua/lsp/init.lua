@@ -3,7 +3,6 @@ vim.g.lsp_zero_extend_lspconfig = 0
 
 -- Here is where you configure the autocompletion settings.
 local lsp_zero = require("lsp-zero")
-local lsp = require('lspconfig')
 lsp_zero.extend_cmp()
 
 -- And you can configure cmp even more, if you want to.
@@ -28,7 +27,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     automatic_enable = {
         exclude = {
-            "jdtls", "harper_ls", "rust_analyzer", "hls", "texlab"
+            "jdtls", "harper_ls", "hls", "texlab"
         }
     }
 })
@@ -37,17 +36,17 @@ require("lsp.rust")
 require("lsp.tex")
 require("lsp.haskell")
 
-lsp.jdtls.setup {
+vim.lsp.config['jdtls'] = {
     settings = {
         java_home = "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
     }
 }
 
-lsp.harper_ls.setup({
+vim.lsp.config['harper_ls'] = {
     settings = {
         ["harper-ls"] = {
             userDictPath = "~/.config/dict.txt",
         }
     },
     filetypes = { "typst", "markdown" }
-})
+}

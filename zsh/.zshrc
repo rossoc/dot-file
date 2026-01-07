@@ -15,6 +15,7 @@ export EDITOR=nvim
 source ~/.config/zsh/alias.zsh
 source ~/.config/zsh/export.zsh
 source ~/.config/zsh/estetic.zsh
+source ~/.config/zsh/local.zsh
 
 #spegni il computer, attacchi i dischi
 #<C-e> -> impostazioni raid
