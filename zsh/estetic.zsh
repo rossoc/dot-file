@@ -1,2 +1,2 @@
-PROMPT="%K{black} %2~ %E %K{reset}
+PROMPT="%K{black} %m: %2~ %E %K{reset}
 %F{#ff862a}❯%f "
