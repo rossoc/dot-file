@@ -15,7 +15,7 @@ function Compile()
         rust = "!cd " .. path .. " && rustc ",
         cpp = "!make -f /Users/carlorosso/.config/Makefile compile arg=",
         c = "!make -f /Users/carlorosso/.config/Makefile compile arg=",
-        tex = "!cd " .. path .. " && pdflatex -shell-escape ",
+        tex = "!cd " .. path .. " && xelatex -shell-escape ",
         go = "!cd " .. path .. " && go build ",
         typescript = "!cd " .. path .. " && tsc --downlevelIteration ",
         haskell = "!cd " .. path .. " && ghc ",
