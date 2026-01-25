@@ -8,5 +8,5 @@ alias note='scripta write ~/.config/Note/riflessione'
 alias todo='scripta write ~/.config/Note/todo'
 alias blog='f() { if [ "$1" = "" ]; then set -- $1 "pagina"; fi; scripta write ~/.config/Note/"$1"; }; f'
 alias note='scripta write ./note'
-alias job='scripta write /Users/carlorosso/Documents/4B-Consulting/Notes/carlo-log'
+alias job='scripta write /Users/carlorosso/Documents/4BConsulting/Notes/carlo-log'
 

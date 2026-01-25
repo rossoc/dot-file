@@ -46,7 +46,6 @@ return {
         "pappasam/nvim-repl",
         opts = {
             filetype_commands = {
-                javascript = { cmd = "deno repl", filetype = "javascript" },
                 python = {
                     cmd =
                     "uv run ipython --TerminalInteractiveShell.editing_mode=emacs --quiet --nosep --no-autoindent -i -c \"%config InteractiveShell.ast_node_interactivity='last_expr_or_assign'\"",
@@ -54,7 +53,7 @@ return {
                     filetype = "python",
                 },
             },
-            default = { cmd = "bash", filetype = "bash" },
+            default = { cmd = "qwen", filetype = "bash" },
             open_window_default = "vertical botright split new",
         },
         keys = {
