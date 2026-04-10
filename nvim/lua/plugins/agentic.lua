@@ -1,37 +1,17 @@
 return {
     {
-        "OXY2DEV/markview.nvim",
-        lazy = false,
-
+        "MeanderingProgrammer/render-markdown.nvim",
+        after = { 'nvim-treesitter' },
+        opts = {
+            file_types = { "AgenticChat", "tex", "latex" },
+        },
     },
     {
-        "rossoc/agentic.nvim",
-
+        "carlos-algms/agentic.nvim",
+        laxy = false,
         opts = {
-            -- Available by default: "claude-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp" | "auggie-acp"
-            acp_providers = {
-                ["gemini-acp"] = {
-                    command = "/opt/homebrew/bin/qwen",
-                },
-            },
-            provider = "gemini-acp", -- setting the name here is all you need to get started
-            headers = {
-                chat = function(parts)
-                    return ""
-                end
-            },
-
-            keymaps = {
-                widget = {
-                    close = "q", -- String for a single keybinding
-                    change_mode = {
-                        {
-                            "<S-Tab>",
-                            mode = { "i", "n", "v" }, -- Specify modes for this keybinding
-                        },
-                    },
-                },
-            },
+            -- Any ACP-compatible provider works. Built-in: "claude-agent-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp" | "copilot-acp" | "auggie-acp" | "mistral-vibe-acp" | "cline-acp" | "goose-acp"
+            provider = "opencode-acp", -- setting the name here is all you need to get started
         },
 
         -- these are just suggested keymaps; customize as desired
@@ -55,26 +35,30 @@ return {
                 desc = "New Agentic Session"
             },
             {
-                "<C-c>",
-                function() require("agentic").stop_generation() end,
-                mode = { "n", "v", "i" },
-                desc = "Stop current generation or tool execution"
-            },
-            -- {
-            --     "'t",
-            --     function() require("agentic").toggle_ui_mode() end,
-            --     mode = { "n", "v", "i" },
-            --     desc = "Toggle Agentic UI mode (sidebar/popup)"
-            -- },
-            {
-                "'f",
+                "'f", -- ai Restore
                 function()
-                    local sessions = require("agentic.telescope.sessions")
-                    sessions.sessions_picker()
+                    require("agentic").restore_session()
                 end,
+                desc = "Agentic Restore session",
+                silent = true,
+                mode = { "n", "v", "i" },
+            },
+            {
+                "'d", -- ai Diagnostics
+                function()
+                    require("agentic").add_current_line_diagnostics()
+                end,
+                desc = "Add current line diagnostic to Agentic",
                 mode = { "n" },
-                desc = "Agentic sessions picker"
+            },
+            {
+                "'D", -- ai all Diagnostics
+                function()
+                    require("agentic").add_buffer_diagnostics()
+                end,
+                desc = "Add all buffer diagnostics to Agentic",
+                mode = { "n" },
             },
         },
-    },
+    }
 }
