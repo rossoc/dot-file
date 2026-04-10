@@ -27,7 +27,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     automatic_enable = {
         exclude = {
-            "jdtls", "harper_ls", "hls", "texlab"
+            "jdtls", "hls", "texlab"
         }
     }
 })

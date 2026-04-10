@@ -1,0 +1,53 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": [
+    "vllm"
+  ],
+  "provider": {
+    "vllm": {
+      "name": "VLLM",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "models/Nanbeige4.1-3B": {
+          "name": "Nanbeige4.1-3B"
+        }
+      },
+      "options": {
+        "baseURL": "http://localhost:8000/v1"
+      }
+    },
+    "llama-cpp": {
+      "name": "llama-cpp",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:8000/v1"
+      },
+      "models": {
+        "Olmo7B": {
+          "name": "Olmo7B"
+        }
+      }
+    }
+  },
+  "agent": {
+    "architect": {
+      "description": "Define a plan to build robust software",
+      "mode": "primary",
+      "temperature": 0,
+      "model": "models/Nanbeige4.1-3B",
+      "prompt": "{file:./system_prompt/architect.md}",
+      "tools": {
+        "write": false,
+        "edit": false, 
+        "bash": false
+      }
+    }
+  },
+  "mcp": {
+    "4Site": {
+      "type": "remote",
+      "url": "https://4site.duckdns.org/mcp",
+      "enabled": true
+    }
+  }
+}

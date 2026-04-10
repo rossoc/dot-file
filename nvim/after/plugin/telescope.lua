@@ -3,6 +3,7 @@ if (not status) then return end
 
 telescope.setup {
     defaults = {
+        sorting_strategy = 'ascending',
         layout_config = {
             prompt_position = "top",
             height = 0.95,
@@ -11,10 +12,10 @@ telescope.setup {
     },
     extensions = {
         fzf = {
-            fuzzy = true,          -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
         },
         jump_list = {
         },

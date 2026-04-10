@@ -38,3 +38,9 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.jupytext_fmt = 'py'
 vim.g.jupytext_style = 'hydrogen'
+
+-- Use different ShaDa files based on terminal session to avoid conflicts
+-- when running multiple Neovim instances in tmux
+local session_id = os.getenv("TMUX_PANE") or os.getenv("WINDOWID") or "default"
+local shada_file = vim.fn.stdpath("state") .. "/nvim/shada/" .. session_id:gsub("[^%w_.%-]", "_") .. ".shada"
+vim.opt.shadafile = shada_file
