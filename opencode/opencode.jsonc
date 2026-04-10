@@ -1,21 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "disabled_providers": [
-    "vllm"
-  ],
+  "model": "llama-cpp/Olmo7B",
+  "disabled_providers": [],
   "provider": {
-    "vllm": {
-      "name": "VLLM",
-      "npm": "@ai-sdk/openai-compatible",
-      "models": {
-        "models/Nanbeige4.1-3B": {
-          "name": "Nanbeige4.1-3B"
-        }
-      },
-      "options": {
-        "baseURL": "http://localhost:8000/v1"
-      }
-    },
     "llama-cpp": {
       "name": "llama-cpp",
       "npm": "@ai-sdk/openai-compatible",
@@ -34,7 +21,7 @@
       "description": "Define a plan to build robust software",
       "mode": "primary",
       "temperature": 0,
-      "model": "models/Nanbeige4.1-3B",
+      "model": "llama-cpp/Olmo7B",
       "prompt": "{file:./system_prompt/architect.md}",
       "tools": {
         "write": false,

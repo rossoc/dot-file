@@ -44,3 +44,5 @@ vim.g.jupytext_style = 'hydrogen'
 local session_id = os.getenv("TMUX_PANE") or os.getenv("WINDOWID") or "default"
 local shada_file = vim.fn.stdpath("state") .. "/nvim/shada/" .. session_id:gsub("[^%w_.%-]", "_") .. ".shada"
 vim.opt.shadafile = shada_file
+
+vim.opt.clipboard = "unnamedplus"
